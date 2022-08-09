@@ -20,6 +20,9 @@ Steps:
                 => Exact match at offset 2300
             `msf-pattern_offset -l 10000 -q Fg4F`
                 => Exact match at offset 4092
+                    'Fg4F' was found in the bottom-right pane of the
+                    CPU window. According to the PWK pdf, this pane
+                    represents "the stack and its content".
 
 
 Notes:
